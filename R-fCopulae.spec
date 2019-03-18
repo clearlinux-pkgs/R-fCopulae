@@ -4,18 +4,17 @@
 #
 Name     : R-fCopulae
 Version  : 3042.82
-Release  : 9
+Release  : 10
 URL      : https://cran.r-project.org/src/contrib/fCopulae_3042.82.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/fCopulae_3042.82.tar.gz
 Summary  : Rmetrics - Bivariate Dependence Structures with Copulae
 Group    : Development/Tools
 License  : GPL-2.0+
-Requires: R-fBasics
-Requires: R-fMultivar
-Requires: R-timeDate
+Requires: R-timeSeries
 BuildRequires : R-fBasics
 BuildRequires : R-fMultivar
 BuildRequires : R-timeDate
+BuildRequires : R-timeSeries
 BuildRequires : buildreq-R
 
 %description
@@ -31,11 +30,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535988116
+export SOURCE_DATE_EPOCH=1552901007
 
 %install
+export SOURCE_DATE_EPOCH=1552901007
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1535988116
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -70,8 +69,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library fCopulae|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  fCopulae || :
 
 
 %files
@@ -108,10 +106,8 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/fCopulae/obsolete/R/mv-dst.R
 /usr/lib64/R/library/fCopulae/obsolete/src/adapt2.f
 /usr/lib64/R/library/fCopulae/obsolete/src/adapt_callback.c
+/usr/lib64/R/library/fCopulae/tests/doRUnit.R
 /usr/lib64/R/library/fCopulae/unitTests/Makefile
-/usr/lib64/R/library/fCopulae/unitTests/report.html
-/usr/lib64/R/library/fCopulae/unitTests/report.txt
-/usr/lib64/R/library/fCopulae/unitTests/reportSummary.txt
 /usr/lib64/R/library/fCopulae/unitTests/runTests.R
 /usr/lib64/R/library/fCopulae/unitTests/runit.ArchimedeanCopulae.R
 /usr/lib64/R/library/fCopulae/unitTests/runit.ArchimedeanDependency.R
