@@ -4,12 +4,15 @@
 #
 Name     : R-fCopulae
 Version  : 3042.82
-Release  : 14
+Release  : 15
 URL      : https://cran.r-project.org/src/contrib/fCopulae_3042.82.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/fCopulae_3042.82.tar.gz
 Summary  : Rmetrics - Bivariate Dependence Structures with Copulae
 Group    : Development/Tools
 License  : GPL-2.0+
+Requires: R-fBasics
+Requires: R-fMultivar
+Requires: R-timeDate
 Requires: R-timeSeries
 BuildRequires : R-fBasics
 BuildRequires : R-fMultivar
@@ -29,13 +32,13 @@ manage, to investigate and to analyze bivariate financial returns by
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1552901007
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1569390849
 
 %install
-export SOURCE_DATE_EPOCH=1552901007
+export SOURCE_DATE_EPOCH=1569390849
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -64,12 +67,12 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  fCopulae || :
+R CMD check --no-manual --no-examples --no-codoc fCopulae || :
 
 
 %files
