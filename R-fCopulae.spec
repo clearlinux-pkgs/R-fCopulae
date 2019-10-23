@@ -4,7 +4,7 @@
 #
 Name     : R-fCopulae
 Version  : 3042.82
-Release  : 15
+Release  : 16
 URL      : https://cran.r-project.org/src/contrib/fCopulae_3042.82.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/fCopulae_3042.82.tar.gz
 Summary  : Rmetrics - Bivariate Dependence Structures with Copulae
@@ -19,6 +19,7 @@ BuildRequires : R-fMultivar
 BuildRequires : R-timeDate
 BuildRequires : R-timeSeries
 BuildRequires : buildreq-R
+BuildRequires : util-linux
 
 %description
 manage, to investigate and to analyze bivariate financial returns by  
@@ -33,10 +34,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1569390849
+export SOURCE_DATE_EPOCH=1571828225
 
 %install
-export SOURCE_DATE_EPOCH=1569390849
+export SOURCE_DATE_EPOCH=1571828225
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
