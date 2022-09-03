@@ -4,7 +4,7 @@
 #
 Name     : R-fCopulae
 Version  : 4021.84
-Release  : 38
+Release  : 39
 URL      : https://cran.r-project.org/src/contrib/fCopulae_4021.84.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/fCopulae_4021.84.tar.gz
 Summary  : Rmetrics - Bivariate Dependence Structures with Copulae
